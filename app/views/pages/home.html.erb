@@ -1,7 +1,7 @@
 <div id="page-title">
   <div id="page-title-inner">
     <div class="container">
-      <h2><i class="ico-keynote"></i>Welcome</h2>
+      <h2><i class="ico-keynote"></i>Welkom</h2>
     </div>
   </div>  
 </div>
@@ -15,14 +15,26 @@
     <!-- start: Row -->
     <div class="row">
 
-      <div class="span12">
+      <div class="span9">
         <div class="post">
           <div class="title">
             TEXT/FOTO
           </div>
         </div>
+      </div>
 
-      </div><!-- end: Span9 -->
+      <div class="span3">
+        <div class="post">
+          <div class="title">
+            <h5><strong>Laatste verhalen</strong></h5>
+            <ul>
+              <% Blog.order('created_at DESC').each do |blog| %>
+                <li class="blog_item"><%= link_to truncate(blog.title, length: 30), blog_path(blog) %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
 
     <hr>
 	</div>
