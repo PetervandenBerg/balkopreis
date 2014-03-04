@@ -62546,3 +62546,23 @@ Started GET "/assets/fbg.jpg" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
 
 
 Started GET "/assets/scroll-top-top.png" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+WARNING on line 283 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 286 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 289 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 292 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 1055 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 1477 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 1496 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 1780 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 1905 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
+WARNING on line 2128 of /Users/peter_vd_berg/code/balkopreis/app/assets/stylesheets/ext_lib/style.css.sass:
+This selector doesn't have any properties and will not be rendered.
