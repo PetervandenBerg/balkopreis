@@ -1,0 +1,28 @@
+<header>
+    
+    <!--start: Container -->
+    <div class="container">
+      
+      <!--start: Navigation -->
+      <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </a>
+          <a class="brand" href="/"><i class="ico-thin-right-arrow ico-color circle"></i>Familie Balk op Reis</a>
+                <div class="nav-collapse collapse">
+                  <ul class="nav">
+                      <li><%= link_to "Dagboek", blogs_path, method: :get %></li>
+                      <li><%= link_to "Fotos", pages_pictures_path, method: :get %></li>
+                  </ul>
+                </div>
+            </div>
+          </div>  
+      <!--end: Navigation -->
+                      
+    </div>
+    <!--end: Container-->     
+      
+  </header>

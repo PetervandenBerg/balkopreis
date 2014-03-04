@@ -1,0 +1,3 @@
+== README
+
+This repository right now is purely experimental. Meant to be the new mastercoin.org homepage. 

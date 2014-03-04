@@ -1,0 +1,16 @@
+<%= simple_form_for([@blog, @picture]) do |f| %>
+  <%= f.error_notification %>
+  <%= f.full_error :image_file_size %>
+  <%= f.full_error :image_content_type %>
+
+  <% if @blog %>
+    <input type="hidden" name="picture[blog_id]" value="<%= @blog.id %>" />
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.file_field :image %>
+  </div>
+  <hr>
+
+  <%= f.button :submit, id: "comment_button" %>
+<% end %>

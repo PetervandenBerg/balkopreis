@@ -1,0 +1,13 @@
+Teampage::Application.routes.draw do
+  
+  devise_for :admins
+  resources :blogs do
+    resources :pictures
+  end
+
+  root 'pages#home'
+
+  get 'pages/home'
+  get 'pages/pictures'
+  
+end

@@ -1,0 +1,47 @@
+<div id="page-title">
+  <div id="page-title-inner">
+    <div class="container">
+      <h2><i class="ico-keynote"></i>Foto's</h2>
+    </div>
+  </div>  
+</div>  
+
+<div id="wrapper">
+  
+  <div class="container">
+  <hr>
+
+    <% unless @pictures.empty? %>
+      
+      <div id="portfolio-wrapper" class="row isotope">
+
+        <% @pictures.each do |picture| %>
+          <div class="span2 portfolio-item nature people isotope-item">   
+            <div class="picture"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto", title: picture.blog.title %> 
+            </div>
+          </div>
+        <% end %>
+
+      </div>  
+
+      <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+          $("a[rel^='prettyPhoto']").prettyPhoto();
+        });
+      </script>
+
+      <%= will_paginate @pictures %>
+
+    <% else %>
+
+      Er zijn nog geen foto's toegevoegd.
+
+    <% end %>
+
+    <hr>
+    <!-- end: Portfolio -->
+      
+  </div>
+  <!--end: Container-->
+      
+</div>
