@@ -62404,3 +62404,145 @@ ActionController::RoutingError (No route matches [GET] "/assets/ext_lib/fonts/fl
   Rendered /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
   Rendered /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
   Rendered /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (27.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-04 12:36:08 +0100
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 121ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/ext_lib/flexslider.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:08 +0100
+
+
+Started GET "/assets/ext_lib/jquery.prettyPhoto.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:08 +0100
+
+
+Started GET "/assets/ext_lib/isotope.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:08 +0100
+
+
+Started GET "/assets/ext_lib/jquery.flexslider.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/ext_lib/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/ext_lib/style.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/ext_lib/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/ext_lib/prettyPhoto.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/ext_lib/social-icons.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/bg2.jpg" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/glyphicons.png" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/fbg.jpg" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/scroll-top-top.png" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/assets/bg-wrapper.jpg" for 127.0.0.1 at 2014-03-04 12:36:09 +0100
+
+
+Started GET "/blogs" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+Processing by BlogsController#index as HTML
+  Parameters: {"authenticity_token"=>"u47NEeXUIEVOBnxC2PqS6IXG0y5y1tO3zfJ6IPX6Dcw="}
+  [1m[35mBlog Load (0.6ms)[0m  SELECT "blogs".* FROM "blogs" ORDER BY created_at DESC LIMIT 6 OFFSET 0
+  [1m[36mPicture Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."blog_id" = ? LIMIT 1[0m  [["blog_id", 5]]
+  [1m[35mPicture Load (0.2ms)[0m  SELECT "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT 1
+  [1m[36mPicture Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."blog_id" = ? LIMIT 1[0m  [["blog_id", 4]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."blog_id" = ? ORDER BY "pictures"."id" DESC LIMIT 1  [["blog_id", 4]]
+  [1m[36mPicture Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."blog_id" = ? LIMIT 1[0m  [["blog_id", 3]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."blog_id" = ? ORDER BY "pictures"."id" DESC LIMIT 1  [["blog_id", 3]]
+  [1m[36mPicture Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."blog_id" = ? LIMIT 1[0m  [["blog_id", 2]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."blog_id" = ? ORDER BY "pictures"."id" DESC LIMIT 1  [["blog_id", 2]]
+  [1m[36mPicture Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."blog_id" = ? LIMIT 1[0m  [["blog_id", 1]]
+  [1m[35mPicture Load (0.1ms)[0m  SELECT "pictures".* FROM "pictures" WHERE "pictures"."blog_id" = ? ORDER BY "pictures"."id" DESC LIMIT 1  [["blog_id", 1]]
+  Rendered blogs/index.html.erb within layouts/application (24.7ms)
+  Rendered layouts/_navbar.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 70ms (Views: 67.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/social-icons.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/prettyPhoto.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/flexslider.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/bootstrap-responsive.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/style.css?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/isotope.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/jquery.flexslider.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/ext_lib/jquery.prettyPhoto.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/glyphicons.png" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/bg2.jpg" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/bg-wrapper.jpg" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/fbg.jpg" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
+
+
+Started GET "/assets/scroll-top-top.png" for 127.0.0.1 at 2014-03-04 12:36:12 +0100
