@@ -17,7 +17,7 @@
 
           <% unless @blog.pictures.empty? %>
 
-          <div id="slider" class="flexslider">
+            <div id="slider" class="flexslider">
               <ul class="slides">
                 <% @blog.pictures.each do |blog| %>
                   <li>
@@ -35,31 +35,8 @@
                 <% end %>
               </ul>
             </div>
-
-            <script>
-              $(window).load(function() {
-                // The slider being synced must be initialized first
-                $('#carousel').flexslider({
-                  animation: "slide",
-                  controlNav: false,
-                  animationLoop: false,
-                  slideshow: true,
-                  itemWidth: 210,
-                  itemMargin: 5,
-                  asNavFor: '#slider'
-                });
-                 
-                $('#slider').flexslider({
-                  animation: "slide",
-                  controlNav: false,
-                  animationLoop: false,
-                  slideshow: true,
-                  sync: "#carousel"
-                });
-              });
-            </script>
-
-            <% end %>
+  
+          <% end %>
 						
 					<div class="post-content">
 						<div class="post-title">

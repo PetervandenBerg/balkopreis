@@ -4,6 +4,31 @@
 	Author: Stephane Caron (http://www.no-margin-for-errors.com)
 	Version: 3.1.5
 ------------------------------------------------------------------------- */
+$(document).ready(function(){
+  $("a[rel^='prettyPhoto']").prettyPhoto();
+});
+
+$(window).load(function() {
+  // The slider being synced must be initialized first
+  $('#carousel').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: true,
+    itemWidth: 210,
+    itemMargin: 5,
+    asNavFor: '#slider'
+  });
+   
+  $('#slider').flexslider({
+    animation: "slide",
+    controlNav: false,
+    animationLoop: false,
+    slideshow: true,
+    sync: "#carousel"
+  });
+});
+
 (function($) {
 	$.prettyPhoto = {version: '3.1.5'};
 	
