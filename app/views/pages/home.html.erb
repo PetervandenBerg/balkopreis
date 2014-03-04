@@ -1,7 +1,7 @@
 <div id="page-title">
   <div id="page-title-inner">
     <div class="container">
-      <h2><i class="ico-keynote"></i>Welkom</h2>
+      <h2><i class="ico-keynote"></i><%= Blog.first.title %></h2>
     </div>
   </div>  
 </div>
@@ -16,11 +16,35 @@
     <div class="row">
 
       <div class="span9">
-        <div class="post">
-          <div class="title">
-            TEXT/FOTO
+        <div class="post post-page", style="margin-bottom: 20px">
+
+          <div class="post-content">
+            <div class="post-description">
+              <p><%= Blog.first.body %></p>
+            </div>
+            <div class="post-meta">
+              <span><i class="mini-ico-calendar"></i><%= Blog.first.created_at.to_s(:short) %></span>
+              <span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
+              <% if admin_signed_in? %>
+                <span><i class="mini-ico-user"></i><%= link_to 'Pas verhaal aan', edit_blog_path(@blog) %></span>
+              <% end %>
+            </div>
           </div>
+
         </div>
+      </div>
+
+      <div class="span3">
+          <div id="slider" class="flexslider">
+            <ul class="slides">
+              <% Blog.first.pictures.each do |blog| %>
+                <li>
+                  <%= image_tag(blog.image) %>    
+                </li>
+              <% end %>
+            </ul>
+            <p>Eventueel hier foto's van het afscheidsfeest ?</p>
+          </div>
       </div>
 
       <div class="span3">
