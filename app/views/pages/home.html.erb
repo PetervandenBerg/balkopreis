@@ -36,7 +36,7 @@
             <ul class="slides">
               <% Blog.first.pictures.each do |blog| %>
                 <li>
-                  <%= image_tag(blog.image) %>    
+                  <%= image_tag(blog.image(:medium)) %>    
                 </li>
               <% end %>
             </ul>
