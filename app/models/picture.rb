@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
-  belongs_to :blog
+  belongs_to :blog, :dependent => :destroy
   belongs_to :admin
 
   has_attached_file :image, styles: { medium: "320x240#"}

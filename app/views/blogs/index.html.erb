@@ -19,9 +19,9 @@
                 
           <div class="span4 portfolio-item nature people isotope-item">
             <% unless blog.pictures.empty? %>
-              <div class="picture"><%= image_tag(blog.pictures.last.image) %>
+              <div class="picture"><%= image_tag(blog.pictures.last.image(:medium)) %>
             <% else %>
-              <div class="picture"><%= image_tag(Picture.last.image) %>
+              <div class="picture"><%= image_tag(Picture.first.image(:medium)) %>
             <% end %>
               <div class="item-description alt">
                 <h5><strong><%= truncate(blog.title, length: 55) %></strong></h5>
