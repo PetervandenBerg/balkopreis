@@ -11,7 +11,7 @@
   <div class="container">
   <hr>
 
-    <% unless @pictures.empty? %>
+    <% if @pictures.present? %>
       
       <div id="portfolio-wrapper" class="row isotope">
 
@@ -34,7 +34,7 @@
 
     <% else %>
 
-      Er zijn nog geen foto's toegevoegd.
+      <p>Er zijn nog geen foto's toegevoegd.</p>
 
     <% end %>
 
