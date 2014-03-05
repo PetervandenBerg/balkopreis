@@ -1,0 +1,24 @@
+<div id="wrapper">
+  <div class="container">
+
+    <div class="row form", style="margin-top: 50px">
+      <%= simple_form_for @message, :url => contact_path, method: :post do |f| %>
+        <%= f.error_notification %>
+        <div class="span6 contact-box">
+          <%= f.input :name, label: false, placeholder: 'Naam', input_html: {class: "name"} %>
+          <%= f.input :email, label: false, placeholder: 'Email', input_html: {class: "mail", type: "text"} %>
+          <%= f.input :subject, label: false, placeholder: 'Onderwerp', input_html: {class: "subject", type: "text"} %>
+        </div>
+        <div class="span6 contact-box box_r">
+          <%= f.input :body, label: false, placeholder: 'Bericht', as: :text %>
+        </div>
+
+        <div class="row submit">
+          <div class="span3 right", style="margin-bottom: 300px">
+            <%= f.button :submit, 'Verstuur E-mail', id: "comment_button", method: :get, data: {disable_with: "Versturen..."} %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>    

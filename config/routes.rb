@@ -9,5 +9,10 @@ Teampage::Application.routes.draw do
 
   get 'pages/home'
   get 'pages/pictures'
+
+
+  get "contact/new"
+  match 'contact' => 'contact#new', :via => :get
+  match 'contact' => 'contact#create', :via => :post
   
 end

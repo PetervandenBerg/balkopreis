@@ -1,19 +1,10 @@
-<div id="page-title">
-  <div id="page-title-inner">
-    <div class="container">
-      <h2><i class="ico-keynote"></i>Dagboek</h2>
-    </div>
-  </div>  
-</div>
-
 <div id="wrapper">
   
   <div class="container">
-  <hr>
 
     <% if @blogs.present? %>
 
-      <div id="portfolio-wrapper" class="row isotope">
+      <div id="portfolio-wrapper" class="row isotope", style="margin-top: 50px">
 
         <% @blogs.each do |blog| %>
                 
@@ -49,7 +40,6 @@
     <% if admin_signed_in? %>
       <%= button_to 'Voeg nieuw verhaal toe', new_blog_path, id: "comment_button", method: :get %>
     <% end %>
-    <hr>
 
   </div>
 

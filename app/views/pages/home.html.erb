@@ -1,14 +1,6 @@
-<div id="page-title">
-  <div id="page-title-inner">
-    <div class="container">
-      <h2><i class="ico-keynote"></i><%= Blog.first.title %></h2>
-    </div>
-  </div>  
-</div>
 
 <div id="wrapper">
   <div class="container">
-  <hr>
 
     <div class="clearfix"></div>
 
@@ -16,9 +8,12 @@
     <div class="row">
 
       <div class="span9">
-        <div class="post post-page", style="margin-bottom: 20px">
+        <div class="post post-page", style="margin-bottom: 20px; margin-top: 50px">
 
           <div class="post-content">
+            <div class="post-title">
+              <h2><strong><%= Blog.first.title %></strong></h2>
+            </div>
             <div class="post-description">
               <p><%= Blog.first.body %></p>
             </div>
@@ -31,7 +26,7 @@
         </div>
       </div>
 
-      <div class="span3", style="margin-top: 18px">
+      <div class="span3", style="margin-top: 50px">
           <div id="slider" class="flexslider">
             <ul class="slides">
               <% Blog.first.pictures.each do |blog| %>
@@ -57,6 +52,5 @@
         </div>
       </div>
 
-    <hr>
 	</div>
 </div>
