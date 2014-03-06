@@ -8,6 +8,7 @@ gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'will_paginate', '~> 3.0'
 gem 'redcarpet'
 gem 'devise'
+gem 'tinymce-rails'
 
 group :production do
   gem 'pg'

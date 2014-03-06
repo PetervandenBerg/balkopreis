@@ -35,7 +35,7 @@
               <h2><strong><%= @blog.title %></strong></h2>
             </div>
 						<div class="post-description">
-							<p><%= @blog.body %></p>
+							<p><%= @blog.body.html_safe %></p>
 						</div>
 						<div class="post-meta">
 							<span><i class="mini-ico-calendar"></i><%= @blog.created_at.to_s(:short) %></span>
@@ -48,27 +48,29 @@
 				
 				</div>
 				<!-- end: Post -->
+        <div class="post post-page", style="margin-bottom: 20px">
 
-        <% if admin_signed_in? %>
-  				<hr>
-          <h2><i class="ico-keynote"></i>Voeg Foto toe:</h2><br>
+          <% if admin_signed_in? %>
+            <h2><i class="ico-keynote"></i>Voeg Foto toe:</h2><br>
 
-          <%= simple_form_for([@blog, @blog.pictures.build]) do |f| %>
-            <%= f.error_notification %>
-            <%= f.full_error :image_file_size %>
-            <%= f.full_error :image_content_type %>
+            <%= simple_form_for([@blog, @blog.pictures.build]) do |f| %>
+              <%= f.error_notification %>
+              <%= f.full_error :image_file_size %>
+              <%= f.full_error :image_content_type %>
 
-            <% if @blog %>
-              <input type="hidden" name="picture[blog_id]" value="<%= @blog.id %>" />
+              <% if @blog %>
+                <input type="hidden" name="picture[blog_id]" value="<%= @blog.id %>" />
+              <% end %>
+
+              <div class="form-inputs">
+                <%= f.file_field :image %>
+              </div><br>
+
+              <%= f.button :submit, 'Voeg toe', id: "comment_button", data: {disable_with: "Toevoegen..."} %>
             <% end %>
-
-            <div class="form-inputs">
-              <%= f.file_field :image %>
-            </div><br>
-
-            <%= f.button :submit, 'Voeg toe', id: "comment_button", data: {disable_with: "Toevoegen..."} %>
           <% end %>
-        <% end %>
+
+        </div>
 
         <div class="post post-page", style="margin-bottom: 20px">
 

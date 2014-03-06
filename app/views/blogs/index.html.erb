@@ -17,7 +17,7 @@
               <div class="item-description alt">
                 <h5><strong><%= truncate(blog.title, length: 55) %></strong></h5>
                 <p>
-                  <%= truncate(blog.body, length: 400) %>
+                  <%= truncate(blog.body.html_safe, length: 400) %>
                 </p>
                 <%= link_to 'Lees meer...', blog_path(blog), class: "post-entry", method: :get %> 
               </div>

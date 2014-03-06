@@ -15,7 +15,7 @@
               <h2><strong><%= Blog.first.title %></strong></h2>
             </div>
             <div class="post-description">
-              <p><%= Blog.first.body %></p>
+              <p><%= Blog.first.body.html_safe %></p>
             </div>
             <div class="post-meta">
               <span><i class="mini-ico-calendar"></i><%= Blog.first.created_at.to_s(:short) %></span>
