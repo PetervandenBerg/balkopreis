@@ -48,9 +48,10 @@
 				
 				</div>
 				<!-- end: Post -->
-        <div class="post post-page", style="margin-bottom: 20px">
 
-          <% if admin_signed_in? %>
+        <% if admin_signed_in? %>
+          <div class="post post-page", style="margin-bottom: 20px">
+
             <h2><i class="ico-keynote"></i>Voeg Foto toe:</h2><br>
 
             <%= simple_form_for([@blog, @blog.pictures.build]) do |f| %>
@@ -68,7 +69,8 @@
 
               <%= f.button :submit, 'Voeg toe', id: "comment_button", data: {disable_with: "Toevoegen..."} %>
             <% end %>
-          <% end %>
+          </div>
+        <% end %>
 
         </div>
 
