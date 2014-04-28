@@ -1,0 +1,46 @@
+<div id="wrapper">
+  <div class="container">
+  
+  <!--start: Row -->
+    <div class="row">
+      
+      <div class="span9">
+        <div class="post post-page", style="margin-top: 50px">
+
+          <% if @kinds.present? %>
+            <div class="title">
+              <h5><strong>Huidge Categorien:</strong></h5>
+              <ul>
+                <table>
+                  <tr>
+                    <td>Naam</td>
+                    <td>Verwijder</td>
+                  </tr>
+                  <% @kinds.each do |kind| %>
+                    <tr>
+                      <td><%= kind.name %></td>
+                      <td><%= link_to 'Verwijder', kind_path(kind),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </table>
+              </ul>
+            </div>
+          <% else %> 
+          <% end %>
+
+          <h5>Nieuwe Categorie toevoegen: </h5>
+          <%= simple_form_for(Kind.new) do |f| %>
+            <%= f.error_notification %>
+
+            <%= f.input :name %>
+            <%= f.submit "Maak nieuwe categorie aan" %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+
+    </div>
+    <br>
+  </div>    
+</div>        

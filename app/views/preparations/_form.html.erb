@@ -1,0 +1,26 @@
+<%= form_for @preparation, html: { multipart: true } do |f| %>
+  <% if @preparation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@preparation.errors.count, "error") %> prohibited this preparation from being saved:</h2>
+
+      <ul>
+      <% @preparation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titel %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_area :body, class: "tinymce", rows: 30, cols: 80 %>
+  </div><br>
+  <div class="actions">
+    <%= f.submit "Bevestigen" %>
+  </div>
+<% end %>
+<%= tinymce %>

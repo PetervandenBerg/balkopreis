@@ -7,9 +7,11 @@
 				</div>
 			</div>
 
-			<div id="sign_in_button">
-				<%= link_to 'Admin Sign in', new_admin_session_path %>
-			</div>
+		<% if admin_signed_in? %>
+			<div id="sign_in_button"><p><%= link_to 'Admin Sign Out', destroy_admin_session_path, :method => :delete %></p></div>
+		<%else %>
+			<div id="sign_in_button"><p><%= link_to 'Admin Sign In', new_admin_session_path %></p></div>
+		<% end %>
 
 		</div>
 	</div>

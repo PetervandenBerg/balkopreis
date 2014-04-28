@@ -6,9 +6,9 @@
       
       <div id="portfolio-wrapper" class="row isotope", style="margin-top: 50px">
 
-        <% @pictures.each do |picture| %>
+        <% Picture.all.each do |picture| %>
           <div class="span2 portfolio-item nature people isotope-item">   
-            <div class="picture"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto", title: picture.blog.title %> 
+            <div class="picture"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %> 
             </div>
           </div>
         <% end %>
@@ -22,6 +22,22 @@
       <p>Er zijn nog geen foto's toegevoegd.</p>
 
     <% end %>
+
+    <% if admin_signed_in? %>
+      <div class="post post-page", style="margin-bottom: 20px">        
+        <%= simple_form_for(@picture) do |f| %>
+          <%= f.error_notification %>
+          <%= f.full_error :image_file_size %>
+          <%= f.full_error :image_content_type %>
+
+          <div class="form-inputs">
+            <%= f.file_field :image, multiple: true %>
+          </div>
+
+          <%= f.button :submit, id: "comment_button" %>
+        <% end %>
+      </div>
+    <% end %>  
 
   </div>
   <!--end: Container-->

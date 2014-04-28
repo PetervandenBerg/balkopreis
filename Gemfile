@@ -10,6 +10,10 @@ gem 'redcarpet'
 gem 'devise'
 gem 'tinymce-rails'
 
+group :assets do
+  gem 'jquery-fileupload-rails'
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

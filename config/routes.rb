@@ -5,11 +5,16 @@ Teampage::Application.routes.draw do
     resources :pictures
   end
 
+  resources :preparations
+
+  resources :pictures
+
+  resources :kinds
+
   root 'pages#home'
 
   get 'pages/home'
   get 'pages/pictures'
-
 
   get "contact/new"
   match 'contact' => 'contact#new', :via => :get

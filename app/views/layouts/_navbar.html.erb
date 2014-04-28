@@ -14,10 +14,11 @@
           <div class="brand"><%= link_to "Familie Balk op Reis", "/", class: "brand", method: :get %></div>
                 <div class="nav-collapse collapse">
                   <ul class="nav">
-                      <li><%= link_to "Dagboek", blogs_path, method: :get %></li>
-                      <li><%= link_to "Fotos", pages_pictures_path, method: :get %></li>
-                      <li><%= link_to "Contact", contact_new_path, method: :get %></li>
-
+                    <li><%= link_to "Categorien", kinds_path, method: :get %></li>
+                    <li><%= link_to "Voorbereidingen", preparations_path, method: :get %></li>
+                    <li><%= link_to "Dagboek", blogs_path, method: :get %></li>
+                    <li><%= link_to "Fotos", pages_pictures_path, method: :get %></li>
+                    <li><%= link_to "Contact", contact_new_path, method: :get %></li>
                   </ul>
                 </div>
             </div>

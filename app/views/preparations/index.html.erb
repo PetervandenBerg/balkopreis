@@ -1,0 +1,37 @@
+
+<div id="wrapper">
+  <div class="container">
+
+    <div class="clearfix"></div>
+
+    <!-- start: Row -->
+    <div class="row">
+
+      <% @preparations.each do |preparation| %>
+
+        <div class="span12">
+          <div class="post post-page", style="margin-bottom: 20px; margin-top: 50px">
+
+            <div class="post-content">
+              <div class="post-title">
+                <h2><strong><%= preparation.title %></strong></h2>
+              </div>
+              <div class="post-description">
+                <p><%= preparation.body.html_safe %></p>
+              </div>
+              <div class="post-meta">
+                <span><i class="mini-ico-calendar"></i><%= preparation.created_at.to_s(:short) %></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <%= button_to 'Voeg nieuwe voorbereiding toe', new_preparation_path, id: "comment_button", method: :get %>
+      <% end %>
+
+  </div>
+</div>

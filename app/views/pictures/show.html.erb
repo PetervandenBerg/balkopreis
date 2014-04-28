@@ -1,0 +1,21 @@
+<div id="wrapper">
+  <div class="container">
+  
+  <!--start: Row -->
+    <div class="row">
+      
+      <div class="span9">
+        <div class="post post-page", style="margin-top: 50px">
+
+          <%= image_tag(@picture.image) %>
+          <%= button_to 'delete', picture_path(@picture),
+                    method: :delete, data: { confirm: 'Are you sure?' } %><br>
+
+          <%= button_to 'back', blog_path(@picture.blog), method: :get %>
+
+        </div>
+      </div>
+
+</div>
+</div>
+</div>

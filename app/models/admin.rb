@@ -5,4 +5,5 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :blogs
   has_many :pictures
+  has_many :preparations
 end
