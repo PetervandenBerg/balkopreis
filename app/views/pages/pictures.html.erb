@@ -8,7 +8,7 @@
 
         <% Picture.all.each do |picture| %>
           <div class="span2 portfolio-item nature people isotope-item">   
-            <div class="picture"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %>
+            <div class="picture", style="height: 194px"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %>
             <% if picture.blog.present? %>
               <%= link_to "Laat bijbehorend verhaal zien", blog_path(picture.blog), method: :get %>
             <% end %>

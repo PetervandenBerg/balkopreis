@@ -22,6 +22,15 @@ class PreparationsController < ApplicationController
     end
   end
 
+  def destroy
+    @preparation = Preparation.find(params[:id])
+    @preparation.destroy
+    respond_to do |format|
+      format.html { redirect_to (preparations_path) }
+      format.json { head :no_content }
+    end
+  end
+
   private 
     def preparation_params
       params.require(:preparation).permit(:admin_id, :title, :body)

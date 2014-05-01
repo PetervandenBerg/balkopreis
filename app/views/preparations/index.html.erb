@@ -6,7 +6,7 @@
     <div class="clearfix"></div>
 
     <!-- start: Row -->
-    <div class="row", style="margin-top:50px">
+    <div class="row", style="margin-top:40px">
 
       <% @preparations.each do |preparation| %>
 
@@ -21,7 +21,10 @@
                 <%=raw markdown.render(preparation.body) %>
               </div>
               <div class="post-meta">
-                <span><i class="mini-ico-calendar"></i><%= preparation.created_at.to_s(:short) %></span>
+                <span><i class="mini-ico-calendar"></i>Toegevoegd op: <%= preparation.created_at.to_s(:short) %></span>
+                <% if admin_signed_in? %>
+                  <%= link_to 'Destroy', preparation, method: :delete, data: { confirm: 'Are you sure?' } %> 
+                <% end %>
               </div>
             </div>
 
