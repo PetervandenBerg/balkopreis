@@ -1,0 +1,49 @@
+<div id="wrapper">
+  <div class="container">
+  
+  <!--start: Row -->
+    <div class="row">
+      
+      <div class="span9">
+        <div class="post post-page", style="margin-top: 50px">
+
+          <% if @links.present? %>
+            <div class="title">
+              <h5><strong>Huidge Links:</strong></h5>
+              <ul>
+                <table>
+                  <tr>
+                    <td>Naam</td>
+                    <td>Link</td>
+                    <td>Verwijder</td>
+                  </tr>
+                  <% @links.each do |link| %>
+                    <tr>
+                      <td><%= link.name %></td>
+                      <td><%= link.link %></td>
+                      <td><%= link_to 'Verwijder', link_path(link),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    </tr>
+                  <% end %>
+                </table>
+              </ul>
+            </div>
+          <% else %> 
+          <% end %>
+
+          <h5>Nieuwe Link toevoegen: </h5>
+          <%= simple_form_for(Link.new) do |f| %>
+            <%= f.error_notification %>
+
+            <%= f.input :name %>
+            <%= f.input :link %>
+            <%= f.submit "Maak nieuwe link aan" %>
+          <% end %>
+          <br>
+        </div>
+      </div>
+
+    </div>
+    <br>
+  </div>    
+</div>        

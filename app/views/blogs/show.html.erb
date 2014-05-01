@@ -48,8 +48,7 @@
           <div class="post post-page", style="margin-bottom: 20px">
 
             <h2><i class="ico-keynote"></i>Voeg Foto toe:</h2><br>
-
-            <%= simple_form_for([@blog, @blog.pictures.build]) do |f| %>
+            <%= simple_form_for([@blog, Picture.new(blog_id: @blog.id)]) do |f| %>
               <%= f.error_notification %>
               <%= f.full_error :image_file_size %>
               <%= f.full_error :image_content_type %>
@@ -66,7 +65,6 @@
             <% end %>
           </div>
         <% end %>
-
     	</div>
 
       <div class="span3", style="margin-top: 32px">
@@ -82,32 +80,32 @@
         </div>
       </div>
 
-        <% if @blog.pictures.present? %>
-          <div class="span3">
-            <div class="post">
-              <div class="title">
-                <h5><strong>Foto's toegevoegd aan dit verhaal:</strong></h5>
-                <ul>
-                  <table style="width:240px">
+      <% if @blog.pictures.present? %>
+        <div class="span3">
+          <div class="post">
+            <div class="title">
+              <h5><strong>Foto's toegevoegd aan dit verhaal:</strong></h5>
+              <ul>
+                <table style="width:240px">
+                  <tr>
+                    <td>ID</td>
+                    <td>show</td>
+                    <td>destroy</td>
+                  </tr>
+                  <% @blog.pictures.each do |picture| %>
                     <tr>
-                      <td>ID</td>
-                      <td>show</td>
-                      <td>destroy</td>
+                      <td><%= picture.id %></td>
+                      <td><%= link_to 'show', picture_path(picture) %></td> 
+                      <td><%= link_to 'delete', picture_path(picture),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
                     </tr>
-                    <% @blog.pictures.each do |picture| %>
-                      <tr>
-                        <td><%= picture.id %></td>
-                        <td><%= link_to 'show', picture_path(picture) %></td> 
-                        <td><%= link_to 'delete', picture_path(picture),
-                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                      </tr>
-                    <% end %>
-                  </table>
-                </ul>
-              </div>
+                  <% end %>
+                </table>
+              </ul>
             </div>
           </div>
-        <% end %>
+        </div>
+      <% end %>
 		
 		</div>
     <br>

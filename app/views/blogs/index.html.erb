@@ -3,22 +3,22 @@
   <div class="container">
 
     <% if @blogs.present? %>
-
-      <div id="portfolio-wrapper" class="row isotope", style="margin-top: 50px">
         
-        <div id="filters", style="background-color: white; margin-bottom: 10px; width: auto">
-          <ul class="option-set" data-option-key="filter">
-            <li><a href="#filter" class="selected" data-option-value="*">All</a></li>
+      <div id="filters", style="background-color: white; margin-bottom: 10px; margin-top: 50px">
+        <ul class="option-set" data-option-key="filter">
+          <li><a href="#filter" data-option-value="*">All</a></li>
+          <li>/</li>
+          <% Kind.all.each do |kind| %>
+            <li><a href="#filter" data-option-value=".<%= kind.name %>"><%= kind.name %></a></li>
             <li>/</li>
-            <% Kind.all.each do |kind| %>
-              <li><a href="#filter" data-option-value=".#{kind.name}"><%= kind.name %></a></li>
-              <li>/</li>
-            <% end %>
-          </ul>
-        </div>
+          <% end %>
+        </ul>
+      </div>
+
+      <div id="portfolio-wrapper" class="row isotope" style="position: relative; overflow: hidden;">  
 
         <% @blogs.each do |blog| %>
-          <div class="span4 portfolio-item nature people isotope-item">
+          <div class="span4 portfolio-item <%= blog.kind_name %> isotope-item">
             <% unless blog.pictures.empty? %>
               <div class="picture"><%= image_tag(blog.pictures.last.image(:medium)) %>
             <% else %>
@@ -41,7 +41,7 @@
 
       </div>
 
-      <%= will_paginate @blogs %>
+      <div style="background-color: white"><%= will_paginate @blogs %></div>
 
     <% else %>
       <p>Er zijn nog geen verhalen toegevoegd.</p>

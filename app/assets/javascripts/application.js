@@ -13,7 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require tinymce-jquery
 //= require_tree .
 //= require_tree './ext_lib'
-

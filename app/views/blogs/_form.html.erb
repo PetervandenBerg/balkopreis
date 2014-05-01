@@ -1,26 +1,9 @@
-<%= form_for @blog, html: { multipart: true } do |f| %>
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+<%= simple_form_for @blog do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :titel %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :body, class: "tinymce", rows: 30, cols: 80 %>
-  </div>
-  <div class="actions">
+    <%= f.input :title %>
+    <%= f.input :body %>
+    <%= f.input :kind_id ,:collection => Kind.all, :label_method => :name,:value_method => :id,:label => "Categorie" ,:include_blank => false %>
     <%= f.submit %>
-  </div>
+
 <% end %>
-<%= tinymce %>

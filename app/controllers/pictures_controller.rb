@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:edit, :update, :destroy]
-  before_filter :authenticate_admin!, only: [:new, :edit, :create, :update]
+  before_filter :authenticate_admin!, only: [:new, :edit, :update]
 
   # GET /pictures
   # GET /pictures.json
@@ -18,8 +18,8 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @blog = Blog.find(params[:id])
     if @blog.present?
+      @blog = Blog.find(params[:id])
       @picture = @blog.pictures.build(picture_params)
     else
       @picture = Picture.new(picture_params)
@@ -28,8 +28,8 @@ class PicturesController < ApplicationController
     respond_to do |format|
       if @picture.save
         if @picture.blog.present?
-          format.html { redirect_to blog_path(@blog), notice: 'Picture was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @picture }
+          format.html { redirect_to blog_path(@picture.blog), notice: 'Picture was successfully created.' }
+          format.json { render action: 'show', status: :created, location: @blog }
         else 
           format.html { redirect_to pages_pictures_path, notice: 'Picture was successfully created.' }
           format.json { render action: 'show', status: :created, location: @picture }
@@ -45,7 +45,7 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to (blog_pictures_path(@picture.blog)) }
+      format.html { redirect_to (blog_path(@picture.blog)) }
       format.json { head :no_content }
     end
   end
@@ -59,6 +59,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:blog_id, :image)
+      params.require(:picture).permit(:blog_id, :image, :kind_id)
     end
 end

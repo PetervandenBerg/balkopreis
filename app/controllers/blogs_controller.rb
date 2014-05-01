@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :edit, :create, :update]
 
   def index
-    @blogs = Blog.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 6)
+    @blogs = Blog.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
   end
 
   def show
@@ -57,6 +57,6 @@ class BlogsController < ApplicationController
     end
 
     def blog_params
-      params.require(:blog).permit(:title, :description, :body, :image)
+      params.require(:blog).permit(:title, :description, :body, :image, :kind_id)
     end
 end

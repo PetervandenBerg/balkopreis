@@ -11,6 +11,8 @@ Teampage::Application.routes.draw do
 
   resources :kinds
 
+  resources :links
+
   root 'pages#home'
 
   get 'pages/home'

@@ -35,6 +35,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
     arel (4.0.1)
     atomic (1.1.14)
     aws-sdk (1.9.5)
@@ -86,6 +88,7 @@ GEM
     orm_adapter (0.5.0)
     pg (0.16.0)
     polyglot (0.3.3)
+    posix-spawn (0.3.6)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -136,8 +139,6 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    tinymce-rails (4.0.11)
-      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -156,12 +157,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  albino
   aws-sdk (= 1.9.5)
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)
   jquery-fileupload-rails
   jquery-rails
+  nokogiri
   paperclip!
   pg
   rails (= 4.0.1)
@@ -171,7 +174,6 @@ DEPENDENCIES
   sdoc
   simple_form (= 3.0.0)
   sqlite3
-  tinymce-rails
   turbolinks
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0)

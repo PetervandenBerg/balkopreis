@@ -6,9 +6,12 @@ gem 'simple_form', '3.0.0'
 gem 'aws-sdk', '1.9.5'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'will_paginate', '~> 3.0'
-gem 'redcarpet'
 gem 'devise'
-gem 'tinymce-rails'
+
+# markdown
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
 
 group :assets do
   gem 'jquery-fileupload-rails'

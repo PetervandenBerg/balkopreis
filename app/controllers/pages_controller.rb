@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def pictures
     @picture = Picture.new
-    @pictures = Picture.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 30)
+    @pictures = Picture.all.order('created_at DESC').paginate(:page => params[:page], :per_page => 24)
   end
 
 end
