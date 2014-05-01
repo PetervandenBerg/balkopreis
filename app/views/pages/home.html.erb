@@ -7,39 +7,9 @@
     <!-- start: Row -->
     <div class="row">
 
-      <div class="span9">
-        <div class="post post-page", style="margin-bottom: 20px; margin-top: 50px; min-height:235px">
 
-          <div class="post-content">
-            <div class="post-title">
-              <h2><strong><%= Blog.first.title %></strong></h2>
-            </div>
-            <div class="post-description">
-              <p><%= Blog.first.body.html_safe %></p>
-            </div>
-            <div class="post-meta">
-              <span><i class="mini-ico-calendar"></i><%= Blog.first.created_at.to_s(:short) %></span>
-              <span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
-            </div>
-          </div>
 
-        </div>
-      </div>
-
-      <div class="span3", style="margin-top: 50px">
-          <div id="slider" class="flexslider">
-            <ul class="slides">
-              <% Blog.first.pictures.each do |blog| %>
-                <li>
-                  <%= image_tag(blog.image(:medium)) %>    
-                </li>
-              <% end %>
-            </ul>
-            <p>Eventueel hier foto's van het afscheidsfeest ?</p>
-          </div>
-      </div>
-
-      <div class="span3">
+      <div class="span3", style="margin-top: 33px; margin-bottom: 300px; float: right">
         <div class="post">
           <div class="title">
             <h5><strong>Laatste verhalen</strong></h5>

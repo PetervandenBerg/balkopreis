@@ -45,8 +45,13 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to (blog_path(@picture.blog)) }
-      format.json { head :no_content }
+      if @picture.blog.present?
+        format.html { redirect_to (blog_path(@picture.blog)) }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to (pages_pictures_path) }
+        format.json { head :no_content }
+      end
     end
   end
 
