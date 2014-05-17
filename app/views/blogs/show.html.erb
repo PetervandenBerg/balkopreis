@@ -80,33 +80,35 @@
         </div>
       </div>
 
-      <% if @blog.pictures.present? %>
-        <div class="span3">
-          <div class="post">
-            <div class="title">
-              <h5><strong>Foto's toegevoegd aan dit verhaal:</strong></h5>
-              <ul>
-                <table style="width:240px">
-                  <tr>
-                    <td>ID</td>
-                    <td>show</td>
-                    <td>destroy</td>
-                  </tr>
-                  <% @blog.pictures.each do |picture| %>
+      <% if admin_signed_in? %>
+        <% if @blog.pictures.present? %>
+          <div class="span3">
+            <div class="post">
+              <div class="title">
+                <h5><strong>Foto's toegevoegd aan dit verhaal:</strong></h5>
+                <ul>
+                  <table style="width:240px">
                     <tr>
-                      <td><%= picture.id %></td>
-                      <td><%= link_to 'show', picture_path(picture) %></td> 
-                      <td><%= link_to 'delete', picture_path(picture),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      <td>ID</td>
+                      <td>show</td>
+                      <td>destroy</td>
                     </tr>
-                  <% end %>
-                </table>
-              </ul>
+                    <% @blog.pictures.each do |picture| %>
+                      <tr>
+                        <td><%= picture.id %></td>
+                        <td><%= link_to 'show', picture_path(picture) %></td> 
+                        <td><%= link_to 'delete', picture_path(picture),
+                      method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                      </tr>
+                    <% end %>
+                  </table>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-		
+  		
 		</div>
     <br>
 	</div>

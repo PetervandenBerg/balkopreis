@@ -14,7 +14,7 @@
           <div class="title">
             <h5><strong>Laatste verhalen</strong></h5>
             <ul>
-              <% Blog.order('created_at DESC').each do |blog| %>
+              <% Blog.order('created_at DESC').last(10).each do |blog| %>
                 <li class="blog_item"><%= link_to truncate(blog.title, length: 30), blog_path(blog) %></li>
               <% end %>
             </ul>

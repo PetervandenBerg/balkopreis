@@ -8,19 +8,20 @@
 
         <% Picture.all.each do |picture| %>
           <div class="span2 portfolio-item nature people isotope-item">   
-            <div class="picture", style="height: 194px"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %>
-            <% if picture.blog.present? %>
-              <%= link_to "Laat bijbehorend verhaal zien", blog_path(picture.blog), method: :get %>
-            <% end %>
+            <div class="picture", style="height: 175px"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %>
+              <% if picture.blog.present? %>
+                <%= link_to "Laat bijbehorend verhaal zien", blog_path(picture.blog), method: :get %>
+              <% end %>
+            </div>
             <% if admin_signed_in? %>
               <%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %> 
             <% end %>
-            </div>
-            
           </div>
+            
         <% end %>
 
       </div>  
+
 
       <%= will_paginate @pictures %>
 
