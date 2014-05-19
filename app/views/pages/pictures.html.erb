@@ -6,7 +6,7 @@
       
       <div id="portfolio-wrapper" class="row isotope", style="margin-top: 50px">
 
-        <% Picture.all.each do |picture| %>
+        <% @pictures.each do |picture| %>
           <div class="span2 portfolio-item nature people isotope-item">   
             <div class="picture", style="height: 175px"><%= link_to (image_tag picture.image(:medium)), picture.image(:original), rel: "prettyPhoto" %>
               <% if picture.blog.present? %>

@@ -22,7 +22,7 @@
             <% unless blog.pictures.empty? %>
               <div class="picture"><%= image_tag(blog.pictures.last.image(:medium)) %>
             <% else %>
-              <div class="picture"><%= image_tag(Picture.first.image(:medium)) %>
+              <div class="picture"><%= image_tag("empty.jpeg") %>
             <% end %>
               <div class="item-description alt">
                 <h5><strong><%= truncate(blog.title, length: 55) %></strong></h5>
