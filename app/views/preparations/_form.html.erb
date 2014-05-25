@@ -1,25 +1,8 @@
-<%= form_for @preparation, html: { multipart: true } do |f| %>
-  <% if @preparation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@preparation.errors.count, "error") %> prohibited this preparation from being saved:</h2>
+<%= simple_form_for @preparation, html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
 
-      <ul>
-      <% @preparation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :title %>
+    <%= f.input :body %>
+    <%= f.submit %>
 
-  <div class="field">
-    <%= f.label :titel %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :body %>
-  </div><br>
-  <div class="actions">
-    <%= f.submit "Bevestigen" %>
-  </div>
 <% end %>
