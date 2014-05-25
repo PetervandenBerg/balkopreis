@@ -1,0 +1,850 @@
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (2.8ms)[0m  CREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")
+  [1m[36m (3.1ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")[0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "blogs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime, "kind_id" integer) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "kinds" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.2ms)[0m  CREATE TABLE "links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "link" varchar(255), "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "blog_id" integer, "created_at" datetime, "updated_at" datetime, "image_file_name" varchar(255), "image_content_type" varchar(255), "image_file_size" integer, "image_updated_at" datetime, "kind_id" integer) [0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "preparations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" varchar(255), "admin_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (4.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140428122041')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131121144402')[0m
+  [1m[35m (3.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140221095847')
+  [1m[36m (2.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140221100323')[0m
+  [1m[35m (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140224090404')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140423091917')[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140423095216')
+  [1m[36m (2.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140428072607')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140428074110')
+  [1m[36m (3.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140428074131')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Unable to load admin_user, underlying cause No such file to load -- admin_user 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load comment, underlying cause No such file to load -- comment 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load group, underlying cause No such file to load -- group 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load message, underlying cause No such file to load -- message 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load newsitem, underlying cause No such file to load -- newsitem 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load notification, underlying cause No such file to load -- notification 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load resource, underlying cause No such file to load -- resource 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load user_group, underlying cause No such file to load -- user_group 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+Unable to load user, underlying cause No such file to load -- user 
+
+ /usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:330:in `require_or_load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:289:in `depend_on'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:207:in `require_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:773:in `try_to_load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:792:in `block in require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:790:in `require_fixture_classes'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activerecord-4.0.1/lib/active_record/fixtures.rb:768:in `fixtures'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/peter_vd_berg/code/balkopreis/test/test_helper.rb:5:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/Users/peter_vd_berg/code/balkopreis/test/helpers/blogs_helper_test.rb:1:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `block in require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:214:in `load_dependency'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/activesupport-4.0.1/lib/active_support/dependencies.rb:229:in `require'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (3 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:73:in `block (2 levels) in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/sub_test_task.rb:72:in `block in define'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/railties-4.0.1/lib/rails/test_unit/testing.rake:61:in `block in <top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `call'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:236:in `block in execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:231:in `execute'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:175:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:197:in `block in invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:195:in `invoke_prerequisites'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:174:in `block in invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/1.9.1/monitor.rb:211:in `mon_synchronize'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:168:in `invoke_with_call_chain'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/task.rb:161:in `invoke'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:149:in `invoke_task'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `each'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:106:in `block in top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:115:in `run_with_threads'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:100:in `top_level'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:78:in `block in run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:165:in `standard_exception_handling'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/lib/rake/application.rb:75:in `run'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/gems/rake-10.1.0/bin/rake:33:in `<top (required)>'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `load'
+/usr/local/rvm/rubies/ruby-1.9.3-p392/lib/ruby/gems/1.9.1/bin/rake:23:in `<main>'
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "admin_users"
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "admin_users"[0m
+SQLite3::SQLException: no such table: admin_users: DELETE FROM "admin_users"
+  [1m[35m (0.0ms)[0m  rollback transaction
