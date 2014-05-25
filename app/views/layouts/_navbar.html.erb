@@ -28,7 +28,7 @@
                         <% end %>
                         <% if Link.all.present? %>
                           <%  Link.all.each do |link| %>
-                            <li><a href="<%= link.link %>"><%= link.name %></a></li>
+                            <li><%= link_to link.name, "http://#{link.link}" %></a></li>
                           <% end %>
                         <% end %>
                       </ul>
