@@ -27,6 +27,7 @@ class PreparationsController < ApplicationController
   end
 
   def update
+    @preparation = Preparation.find(params[:id])
     respond_to do |format|
       if @preparation.update(preparation_params)
         format.html { redirect_to preparations_path, notice: 'Voorbereiding was successfully updated.' }
