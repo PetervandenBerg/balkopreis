@@ -37,6 +37,7 @@
 							<span><div class="fb-share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button"></div></span>
               <% if admin_signed_in? %>
                 <span><i class="mini-ico-user"></i><%= link_to 'Pas verhaal aan', edit_blog_path(@blog) %></span>
+                <span><i class="mini-ico-user"></i><%= link_to 'Verwijder', @blog,method: :delete, data: { confirm: 'Are you sure?' } %></span>
               <% end %>
 						</div>
 					</div>
