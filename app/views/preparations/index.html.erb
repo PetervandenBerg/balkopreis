@@ -23,6 +23,7 @@
               <div class="post-meta">
                 <span><i class="mini-ico-calendar"></i>Toegevoegd op: <%= preparation.created_at.to_s(:short) %></span>
                 <% if admin_signed_in? %>
+                  <%= link_to 'Edit', edit_preparation_path(preparation) %> 
                   <%= link_to 'Destroy', preparation, method: :delete, data: { confirm: 'Are you sure?' } %> 
                 <% end %>
               </div>
