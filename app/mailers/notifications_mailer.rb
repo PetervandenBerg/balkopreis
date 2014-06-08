@@ -5,7 +5,7 @@ class NotificationsMailer < ActionMailer::Base
 
   def new_message(message)
     @message = message
-    mail(:subject => "[Nieuw prive bericht], #{message.subject}")
+    mail(:subject => "[Nieuw prive bericht], #{message.name}")
   end
 
 end
