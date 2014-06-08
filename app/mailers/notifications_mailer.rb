@@ -1,7 +1,7 @@
 class NotificationsMailer < ActionMailer::Base
 
   default :from => "info@balkopreis.nl"
-  default :to => "peter_vd_berg@hotmail.com"
+  default :to => "pienenharm@hotmail.com"
 
   def new_message(message)
     @message = message
