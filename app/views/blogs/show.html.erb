@@ -1,3 +1,5 @@
+<% markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true) %>
+
 <div id="wrapper">
 	<div class="container">
 	
@@ -30,7 +32,7 @@
               <h2><strong><%= @blog.title %></strong></h2>
             </div>
 						<div class="post-description">
-							<p><%= @blog.body.html_safe %></p>
+							<p><%= raw markdown.render(@blog.body) %></p>
 						</div>
 						<div class="post-meta">
 							<span><i class="mini-ico-calendar"></i><%= @blog.created_at.to_s(:short) %></span>
