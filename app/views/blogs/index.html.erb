@@ -29,7 +29,7 @@
               <div class="item-description alt">
                 <h5><strong><%= truncate(blog.title, length: 55) %></strong></h5>
                 <p>
-                  <%= raw markdown.render(truncate(blog.body.html_safe, length: 400)) %>
+                  <%= raw markdown.render(truncate(blog.body.html_safe, length: 300)) %>
                 </p>
                 <%= link_to 'Lees meer...', blog_path(blog), class: "post-entry", method: :get %> 
               </div>
